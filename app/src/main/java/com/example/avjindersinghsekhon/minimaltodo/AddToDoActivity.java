@@ -49,7 +49,7 @@ public class AddToDoActivity extends AppCompatActivity implements  DatePickerDia
 
     private Button mChooseDateButton;
     private Button mChooseTimeButton;
-    private ToDoItem mUserToDoItem;
+    private ToDoItemKt mUserToDoItem;
     private FloatingActionButton mToDoSendFloatingActionButton;
     public static final String DATE_FORMAT = "MMM d, yyyy";
     public static final String DATE_FORMAT_MONTH_DAY = "MMM d";
@@ -110,7 +110,7 @@ public class AddToDoActivity extends AppCompatActivity implements  DatePickerDia
         }
 
 
-        mUserToDoItem = (ToDoItem)getIntent().getSerializableExtra(MainActivity.TODOITEM);
+        mUserToDoItem = (ToDoItemKt)getIntent().getSerializableExtra(MainActivity.TODOITEM);
 
         mUserEnteredText = mUserToDoItem.getToDoText();
         mUserHasReminder = mUserToDoItem.hasReminder();

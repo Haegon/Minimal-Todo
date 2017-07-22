@@ -17,16 +17,17 @@ public class TodoNotificationService extends IntentService {
     private UUID mTodoUUID;
     private Context mContext;
 
-    public TodoNotificationService(){
+    public TodoNotificationService() {
         super("TodoNotificationService");
     }
+
     @Override
     protected void onHandleIntent(Intent intent) {
         mTodoText = intent.getStringExtra(TODOTEXT);
-        mTodoUUID = (UUID)intent.getSerializableExtra(TODOUUID);
+        mTodoUUID = (UUID) intent.getSerializableExtra(TODOUUID);
 
         Log.d("OskarSchindler", "onHandleIntent called");
-        NotificationManager manager = (NotificationManager)getSystemService(NOTIFICATION_SERVICE);
+        NotificationManager manager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
         Intent i = new Intent(this, ReminderActivity.class);
         i.putExtra(TodoNotificationService.TODOUUID, mTodoUUID);
         Intent deleteIntent = new Intent(this, DeleteNotificationService.class);
@@ -41,24 +42,5 @@ public class TodoNotificationService extends IntentService {
                 .build();
 
         manager.notify(100, notification);
-//        Uri defaultRingone = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
-//        MediaPlayer mp = new MediaPlayer();
-//        try{
-//            mp.setDataSource(this, defaultRingone);
-//            mp.setAudioStreamType(AudioManager.STREAM_NOTIFICATION);
-//            mp.prepare();
-//            mp.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
-//                @Override
-//                public void onCompletion(MediaPlayer mp) {
-//                    mp.release();
-//                }
-//            });
-//            mp.start();
-//
-//        }
-//        catch (Exception e){
-//            e.printStackTrace();
-//        }
-
     }
 }

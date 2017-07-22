@@ -27,7 +27,7 @@ public class CustomTextInputLayout extends TextInputLayout {
     public void addView(View child, int index, ViewGroup.LayoutParams params) {
         if (child instanceof EditText) {
             // Since hint will be nullify on EditText once on parent addView, store hint value locally
-            mHint = ((EditText)child).getHint();
+            mHint = ((EditText) child).getHint();
         }
         super.addView(child, index, params);
     }
@@ -40,8 +40,7 @@ public class CustomTextInputLayout extends TextInputLayout {
             // We have to reset the previous hint so that equals check pass
             setHint(null);
 
-            // In case that hint is changed programatically
-            CharSequence currentEditTextHint =  getEditText().getHint();
+            CharSequence currentEditTextHint = getEditText().getHint();
 
             if (currentEditTextHint != null && currentEditTextHint.length() > 0) {
                 mHint = currentEditTextHint;
@@ -50,6 +49,5 @@ public class CustomTextInputLayout extends TextInputLayout {
             mIsHintSet = true;
         }
     }
-
 }
 

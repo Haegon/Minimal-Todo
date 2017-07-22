@@ -15,7 +15,7 @@ public class ScrollingFABBehaviour extends CoordinatorLayout.Behavior<FloatingAc
 
     public  ScrollingFABBehaviour(Context context, AttributeSet attributeSet){
         super(context, attributeSet);
-        this.toolbarHeight = Utils.getToolbarHeight(context);
+        this.toolbarHeight = UtilsKt.Companion.getToolbarHeight(context);
     }
 
 
